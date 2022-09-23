@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class LoggerService {
-  log(text: string) {
-    console.log(text);
+  protected id = 0;
+  constructor() {
+    this.id = Math.random() * 100;
+  }
+
+  log(message: string) {
+    console.log(`LoggerService ${this.id} log: ${message}`);
   }
 }
