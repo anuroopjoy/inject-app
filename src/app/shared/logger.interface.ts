@@ -5,7 +5,6 @@ export const enum LogType {
   Client,
 }
 export interface AppConfig {
-  apiUrl: string;
   logType: LogType;
 }
 

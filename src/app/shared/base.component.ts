@@ -5,7 +5,7 @@ import { LoggerService } from './logger.service';
 @Directive()
 export class BaseComponent implements OnDestroy {
   #subscribers: Subscription[] = [];
-  protected logger = inject(LoggerService);
+  protected logger: LoggerService = inject(LoggerService);
 
   addSafeSubscriber(source: Observable<unknown>, handler: any) {
     this.#subscribers.push(source.subscribe(handler));
