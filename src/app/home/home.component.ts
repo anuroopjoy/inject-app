@@ -12,13 +12,9 @@ import { HomeService } from './home.service';
 export class HomeComponent extends BaseComponent implements OnInit {
   cities: { name: string; image: string; alt: string }[] = [];
   protected override logger: LoggerService = inject(LoggerService, {
-    skipSelf: true,
+    self: true,
   });
-  private homeService = inject(HomeService);
-  constructor() {
-    super();
-    console.log('HomeComponent constructor');
-  }
+  private homeService: HomeService = inject(HomeService);
 
   async ngOnInit() {
     console.log('HomeComponent ngOnInit start');
