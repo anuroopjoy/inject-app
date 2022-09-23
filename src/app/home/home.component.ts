@@ -1,15 +1,19 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { BaseComponent } from '../shared/base.component';
+import { LoggerService } from '../shared/logger.service';
 import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [HomeService],
+  providers: [HomeService, LoggerService],
 })
 export class HomeComponent extends BaseComponent implements OnInit {
   cities: { name: string; image: string; alt: string }[] = [];
+  protected override logger: LoggerService = inject(LoggerService, {
+    skipSelf: true,
+  });
   private homeService = inject(HomeService);
   constructor() {
     super();
